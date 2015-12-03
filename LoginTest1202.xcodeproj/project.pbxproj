@@ -107,9 +107,9 @@
 		B2EEFCE01C0FDFB800872EBE /* Login & Sign  */ = {
 			isa = PBXGroup;
 			children = (
-				B24746591C0F16E30091F199 /* LoginVC.h */,
 				B2EEFCE11C0FE01300872EBE /* LandingPage.h */,
 				B2EEFCE21C0FE01300872EBE /* LandingPage.m */,
+				B24746591C0F16E30091F199 /* LoginVC.h */,
 				B247465A1C0F16E30091F199 /* LoginVC.m */,
 			);
 			name = "Login & Sign ";

@@ -8,6 +8,8 @@
 
 #import "LandingPage.h"
 
+#import "LoginVC.h"
+
 @interface LandingPage ()
 
 @end
@@ -16,8 +18,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self allUi];
+
 }
+
+
+-(void)allUi
+{
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    [button setTitle:@"test" forState:normal];
+    [button addTarget:self action:@selector(toNext:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:button];
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+-(void)toNext:(UIButton*)button
+{
+    LoginVC *controller = [[LoginVC alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+         
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

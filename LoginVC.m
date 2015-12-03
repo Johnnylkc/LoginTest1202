@@ -8,6 +8,8 @@
 
 #import "LoginVC.h"
 
+#import "HomeTVC.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface LoginVC () <UITextFieldDelegate>
@@ -167,7 +169,11 @@
 {
     NSLog(@"ggggg");
 
- 
+    HomeTVC *controller = [[HomeTVC alloc] init];
+    
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    [self presentViewController:homeNav animated:NO completion:nil];
     
 }
 

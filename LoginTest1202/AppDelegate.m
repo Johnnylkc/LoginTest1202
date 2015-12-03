@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "HomeTVC.h"
+#import "LandingPage.h"
 
 #import "LoginVC.h"
+
 
 
 #import <Parse/Parse.h>
@@ -23,17 +25,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    HomeTVC *onePage = [[HomeTVC alloc] init];
-    UINavigationController *oneNav = [[UINavigationController alloc] initWithRootViewController:onePage];
     
     
-    LoginVC *testPage = [[LoginVC alloc] init];
+    LandingPage *firstPage = [LandingPage new];
+    UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstPage];
+    
+    
     
     
  
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = testPage;
+    self.window.rootViewController = firstNav;
     [self.window makeKeyAndVisible];
     
     

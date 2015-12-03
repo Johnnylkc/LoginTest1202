@@ -30,7 +30,9 @@
     
     [self parseDownload];
     
-   
+    self.tableView.rowHeight = 100;
+    
+    
 }
 
 
