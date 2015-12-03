@@ -15,6 +15,7 @@
 		B24746371C0EC3400091F199 /* HomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B24746361C0EC3400091F199 /* HomeTVC.m */; };
 		B247463A1C0EC3630091F199 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B24746391C0EC3630091F199 /* HomeCell.m */; };
 		B247465B1C0F16E30091F199 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B247465A1C0F16E30091F199 /* LoginVC.m */; };
+		B2EEFCE31C0FE01300872EBE /* LandingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EEFCE21C0FE01300872EBE /* LandingPage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		B24746391C0EC3630091F199 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		B24746591C0F16E30091F199 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B247465A1C0F16E30091F199 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		B2EEFCE11C0FE01300872EBE /* LandingPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPage.h; sourceTree = "<group>"; };
+		B2EEFCE21C0FE01300872EBE /* LandingPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPage.m; sourceTree = "<group>"; };
 		C086A26ECFD207E279DD01A0 /* Pods-LoginTest1202.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginTest1202.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginTest1202/Pods-LoginTest1202.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,8 +65,7 @@
 			children = (
 				B247461D1C0EC29A0091F199 /* LoginTest1202 */,
 				B247461C1C0EC29A0091F199 /* Products */,
-				B24746591C0F16E30091F199 /* LoginVC.h */,
-				B247465A1C0F16E30091F199 /* LoginVC.m */,
+				B2EEFCE01C0FDFB800872EBE /* Login & Sign  */,
 				B24746351C0EC3400091F199 /* HomeTVC.h */,
 				B24746361C0EC3400091F199 /* HomeTVC.m */,
 				B24746381C0EC3630091F199 /* HomeCell.h */,
@@ -100,6 +102,17 @@
 				B247461F1C0EC29A0091F199 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2EEFCE01C0FDFB800872EBE /* Login & Sign  */ = {
+			isa = PBXGroup;
+			children = (
+				B24746591C0F16E30091F199 /* LoginVC.h */,
+				B2EEFCE11C0FE01300872EBE /* LandingPage.h */,
+				B2EEFCE21C0FE01300872EBE /* LandingPage.m */,
+				B247465A1C0F16E30091F199 /* LoginVC.m */,
+			);
+			name = "Login & Sign ";
 			sourceTree = "<group>";
 		};
 		EF4C5C23C780E14DE47D706B /* Frameworks */ = {
@@ -230,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EEFCE31C0FE01300872EBE /* LandingPage.m in Sources */,
 				B24746231C0EC29A0091F199 /* AppDelegate.m in Sources */,
 				B24746201C0EC29A0091F199 /* main.m in Sources */,
 				B247465B1C0F16E30091F199 /* LoginVC.m in Sources */,

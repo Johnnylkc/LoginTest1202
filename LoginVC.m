@@ -8,7 +8,9 @@
 
 #import "LoginVC.h"
 
-@interface LoginVC ()
+#import <QuartzCore/QuartzCore.h>
+
+@interface LoginVC () <UITextFieldDelegate>
 {
     UIButton *FBButton;
     UITextField *userNameText;
@@ -50,10 +52,11 @@
     //FB登入按鈕
     FBButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
     FBButton.center = CGPointMake(self.view.frame.size.width/2, 200);
-    [FBButton setBackgroundColor:[UIColor blueColor]];
+    [FBButton setBackgroundColor:[UIColor colorWithRed:24/255.0 green:86/255.0 blue:255/255.0 alpha:1]];
     [FBButton setTitle:@"facebook登入" forState:normal];
     [FBButton setTitleColor:[UIColor whiteColor] forState:normal];
     FBButton.layer.cornerRadius = 5;
+    [FBButton addTarget:self action:@selector(ggg:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:FBButton];
     
     
@@ -63,6 +66,8 @@
     [userNameText setBorderStyle:UITextBorderStyleRoundedRect];
     userNameText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
     userNameText.placeholder = @"使用者名稱";
+    userNameText.delegate = self;
+    userNameText.textColor = [UIColor whiteColor];
     [self.view addSubview:userNameText];
     
     
@@ -72,6 +77,8 @@
     [passwordText setBorderStyle:UITextBorderStyleRoundedRect];
     passwordText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
     passwordText.layer.cornerRadius = 5;
+    passwordText.delegate = self;
+    passwordText.textColor = [UIColor whiteColor];
     [self.view addSubview:passwordText];
     
     //textfield placeholder變色
@@ -93,39 +100,76 @@
     
     
     //我要加一個tap的gesture
-//    UITapGestureRecognizer *tapGest = [UITapGestureRecognizer alloc] initWithTarget:self action:@selector()];
-//    
-//    
-//}
-
-
-
-//鍵盤因為textField被點擊開始編輯 而出現 順便執行動畫
-- (void) textFieldDidBeginEditing:(UITextField *)textField
-{
-    
-
-    
-
-    
-    
-}
-
-
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-
-
-    
-    
+    UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(justTap:)];
+    [self.view addGestureRecognizer:tapGest];
     
 }
 
 
 
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+{
+    
+   [UIView animateWithDuration:0.3 animations:^{
+       FBButton.center = CGPointMake(self.view.frame.size.width/2, 100);
+       FBButton.backgroundColor = [UIColor clearColor];
+       [FBButton setTitleColor:[UIColor clearColor] forState:normal];
+       
+       orLabel.center = CGPointMake(self.view.frame.size.width/2, 100);
+       orLabel.textColor = [UIColor clearColor];
+   
+       userNameText.center = CGPointMake(self.view.frame.size.width/2,200 );
 
+       passwordText.center = CGPointMake(self.view.frame.size.width/2, 240);
+
+   
+   
+   
+   }];
+    
+    NSLog(@"qqq");
+    
+}
+
+
+
+
+-(void)justTap:(UISwipeGestureRecognizer *)tapGest
+{
+    
+    NSLog(@"ddd");
+    
+    [self.view endEditing:YES];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        userNameText.center = CGPointMake(self.view.frame.size.width/2,300 );
+        passwordText.center = CGPointMake(self.view.frame.size.width/2, 340);
+
+        
+    }];
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+-(void)ggg:(UIButton*)FBButton
+{
+    NSLog(@"ggggg");
+
+ 
+    
+}
 
 
 
