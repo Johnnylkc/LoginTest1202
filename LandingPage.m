@@ -7,7 +7,6 @@
 //
 
 #import "LandingPage.h"
-
 #import "LoginVC.h"
 
 @interface LandingPage ()
@@ -28,29 +27,68 @@
 
 -(void)allUi
 {
+    //讓navi變透明
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
-    [button setTitle:@"test" forState:normal];
-    [button addTarget:self action:@selector(toNext:) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:button];
+    //這個view的背景圖片
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImage.image = [UIImage imageNamed:@"002"];
+    backgroundImage.contentMode = UIViewContentModeScaleAspectFill;
+    backgroundImage.clipsToBounds = YES;
+    [self.view addSubview:backgroundImage];
+    
+    //特效view
+    UIView *effectView = [[UIView alloc] init];
+    effectView.frame = self.view.frame;
+    effectView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
+    [self.view addSubview:effectView];
+    
+    //登入按鈕
+    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 140, 50)];
+    [loginButton setTitle:@"登入" forState:normal];
+    loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    [loginButton setTitleColor:[UIColor whiteColor] forState:normal];
+    loginButton.backgroundColor = [UIColor clearColor];
+    loginButton.layer.borderWidth = 1;
+    loginButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    loginButton.layer.cornerRadius = 5;
+    [loginButton addTarget:self action:@selector(toLoginPage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginButton];
     
     
+    //註冊按鈕
+    UIButton *signinButton = [[UIButton alloc] initWithFrame:CGRectMake(170, 500, 140, 50)];
+    [signinButton setTitle:@"註冊" forState:normal];
+    [signinButton setTintColor:[UIColor whiteColor]];
+    signinButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    signinButton.backgroundColor = [UIColor redColor];
+    signinButton.layer.cornerRadius = 5;
+    signinButton.clipsToBounds = YES;
     
+    [self.view addSubview:signinButton];
     
     
 }
 
 
 
-
-
--(void)toNext:(UIButton*)button
+-(void)toLoginPage:(UIButton*)loginButton
 {
-    LoginVC *controller = [[LoginVC alloc] init];
+    LoginVC *controller = [LoginVC new];
+    
     [self.navigationController pushViewController:controller animated:YES];
-         
+    
 }
+
+
+
+
 
 
 
