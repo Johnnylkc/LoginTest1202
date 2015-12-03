@@ -11,6 +11,7 @@
 #import "HomeTVC.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <Parse/Parse.h>
 
 @interface LoginVC () <UITextFieldDelegate>
 {
@@ -18,6 +19,7 @@
     UITextField *userNameText;
     UITextField *passwordText;
     UILabel *orLabel;
+    UIButton *loginButton;
     
     
     
@@ -101,6 +103,14 @@
     orLabel.center = CGPointMake(self.view.frame.size.width/2, 250);
     [self.view addSubview: orLabel];
     
+    //登入按鈕
+    loginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
+    loginButton.center = CGPointMake(self.view.frame.size.width/2, 380);
+    [loginButton setTitle:@"登入" forState:normal];
+    loginButton.backgroundColor = [UIColor blueColor];
+    [loginButton setTintColor:[UIColor whiteColor]];
+    [loginButton addTarget:self action:@selector(justLogin:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginButton];
     
     //我要加一個tap的gesture
     UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(justTap:)];
@@ -164,7 +174,33 @@
 }
 
 
+-(void)justLogin:(UIButton*)loginButton
+{
+    [PFUser logInWithUsernameInBackground:userNameText.text password:passwordText.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        
+        if (user) {
+            
+            NSLog(@"登入成功的拉拉拉拉拉");
+            
+            HomeTVC *controller = [[HomeTVC alloc] init];
+            
+            UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:controller];
+            
+            [self presentViewController:homeNav animated:NO completion:nil];
 
+            
+        }else{
+            
+            NSLog(@"登入失敗喔");
+            
+            
+        }
+        
+        
+    }];
+    
+    
+}
 
 
 

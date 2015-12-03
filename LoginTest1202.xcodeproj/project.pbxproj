@@ -15,6 +15,7 @@
 		B24746371C0EC3400091F199 /* HomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B24746361C0EC3400091F199 /* HomeTVC.m */; };
 		B247463A1C0EC3630091F199 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B24746391C0EC3630091F199 /* HomeCell.m */; };
 		B247465B1C0F16E30091F199 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B247465A1C0F16E30091F199 /* LoginVC.m */; };
+		B267C5DF1C107B2400C7D8EB /* SignUpPage.m in Sources */ = {isa = PBXBuildFile; fileRef = B267C5DE1C107B2400C7D8EB /* SignUpPage.m */; };
 		B2EEFCE31C0FE01300872EBE /* LandingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EEFCE21C0FE01300872EBE /* LandingPage.m */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		B24746391C0EC3630091F199 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		B24746591C0F16E30091F199 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B247465A1C0F16E30091F199 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		B267C5DD1C107B2400C7D8EB /* SignUpPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPage.h; sourceTree = "<group>"; };
+		B267C5DE1C107B2400C7D8EB /* SignUpPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPage.m; sourceTree = "<group>"; };
 		B2EEFCE11C0FE01300872EBE /* LandingPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPage.h; sourceTree = "<group>"; };
 		B2EEFCE21C0FE01300872EBE /* LandingPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPage.m; sourceTree = "<group>"; };
 		C086A26ECFD207E279DD01A0 /* Pods-LoginTest1202.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginTest1202.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginTest1202/Pods-LoginTest1202.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				B2EEFCE21C0FE01300872EBE /* LandingPage.m */,
 				B24746591C0F16E30091F199 /* LoginVC.h */,
 				B247465A1C0F16E30091F199 /* LoginVC.m */,
+				B267C5DD1C107B2400C7D8EB /* SignUpPage.h */,
+				B267C5DE1C107B2400C7D8EB /* SignUpPage.m */,
 			);
 			name = "Login & Sign ";
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2EEFCE31C0FE01300872EBE /* LandingPage.m in Sources */,
+				B267C5DF1C107B2400C7D8EB /* SignUpPage.m in Sources */,
 				B24746231C0EC29A0091F199 /* AppDelegate.m in Sources */,
 				B24746201C0EC29A0091F199 /* main.m in Sources */,
 				B247465B1C0F16E30091F199 /* LoginVC.m in Sources */,

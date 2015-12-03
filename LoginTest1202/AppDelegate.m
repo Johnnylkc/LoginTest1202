@@ -30,10 +30,6 @@
     LandingPage *firstPage = [LandingPage new];
     UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstPage];
     
-    
-    
-    
- 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = firstNav;
     [self.window makeKeyAndVisible];
@@ -42,6 +38,19 @@
     [Parse setApplicationId:@"qg38sxySWH19E6LMj4E1In1pSBGRSOT3reQvD78h" clientKey:@"iAnIIKyBX3MlBvrBT96wSBSdothSxwLGG8qaCOuv"];
     
     
+    ////
+//    PFObject *anotherClass= [PFObject objectWithClassName:@"player"];
+//    [anotherClass setObject:@"Johnny" forKey:@"Name"];
+//    [anotherClass setObject:[NSNumber numberWithInt:2000] forKey:@"Score"];
+//    [anotherClass saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        
+//        if (succeeded) {
+//            NSLog(@"建置成功");
+//        }else{
+//            NSLog(@"失敗失敗");
+//        }
+//        
+//    }];
     
     return YES;
 }

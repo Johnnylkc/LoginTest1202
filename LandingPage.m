@@ -8,6 +8,7 @@
 
 #import "LandingPage.h"
 #import "LoginVC.h"
+#import "SignUpPage.h"
 
 @interface LandingPage ()
 
@@ -73,7 +74,7 @@
     signinButton.backgroundColor = [UIColor redColor];
     signinButton.layer.cornerRadius = 5;
     signinButton.clipsToBounds = YES;
-    
+    [signinButton addTarget:self action:@selector(toSignUpPage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signinButton];
     
     
@@ -94,7 +95,13 @@
 
 
 
-
+-(void)toSignUpPage:(UIButton*)signinButton
+{
+    
+    SignUpPage *controller = [SignUpPage new];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+}
 
 
 

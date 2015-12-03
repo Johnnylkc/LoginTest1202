@@ -16,7 +16,6 @@
     NSMutableArray *locoDataArray;
     NSMutableDictionary *getDataDic;
     
-    
 }
 
 @end
@@ -30,6 +29,8 @@
     
     [self parseDownload];
     
+    [self parse02];
+    
     self.tableView.rowHeight = 100;
     
     
@@ -38,7 +39,7 @@
 
 -(void)parseDownload
 {
-    
+
     locoDataArray = [[NSMutableArray alloc]init];
     getDataDic = [[NSMutableDictionary alloc] init];
     
@@ -65,7 +66,7 @@
                 }
                 
                 [self.tableView reloadData];
-                
+
             }];
             
         }
@@ -77,8 +78,22 @@
 
 
 
+-(void)parse02
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"player"];
+    [query whereKey:@"Name" equalTo:@"Johnny"];
+    [query whereKey:@"Score" greaterThan:[NSNumber numberWithInt:1400]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+       
+        if (!error) {
+            NSLog(@"%@" , objects);
+        }else{
+            NSLog(@"shit");
+        }
+    }];
+    
 
-
+}
 
 
 
