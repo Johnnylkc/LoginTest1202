@@ -35,6 +35,9 @@
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 
+    //下一頁的返回 不要有字 只要有箭頭
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     //這個view的背景圖片
     UIImageView *backgroundImage = [[UIImageView alloc]initWithFrame:self.view.frame];
@@ -50,7 +53,7 @@
     [self.view addSubview:effectView];
     
     //登入按鈕
-    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 140, 50)];
+    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 140, 40)];
     [loginButton setTitle:@"登入" forState:normal];
     loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     [loginButton setTitleColor:[UIColor whiteColor] forState:normal];
@@ -63,7 +66,7 @@
     
     
     //註冊按鈕
-    UIButton *signinButton = [[UIButton alloc] initWithFrame:CGRectMake(170, 500, 140, 50)];
+    UIButton *signinButton = [[UIButton alloc] initWithFrame:CGRectMake(170, 500, 140, 40)];
     [signinButton setTitle:@"註冊" forState:normal];
     [signinButton setTintColor:[UIColor whiteColor]];
     signinButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -72,6 +75,9 @@
     signinButton.clipsToBounds = YES;
     
     [self.view addSubview:signinButton];
+    
+    
+
     
     
 }

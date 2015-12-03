@@ -61,7 +61,7 @@
                     
                     [locoDataArray addObject:getDataDic];
                     
-                    NSLog(@"%@" , locoDataArray);
+                   // NSLog(@"%@" , locoDataArray);
                 }
                 
                 [self.tableView reloadData];

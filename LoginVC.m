@@ -34,7 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     [self allUi];
     
 
@@ -52,7 +53,7 @@
     [self.view addSubview:backgroundImage];
     
     //FB登入按鈕
-    FBButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
+    FBButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 250, 30)];
     FBButton.center = CGPointMake(self.view.frame.size.width/2, 200);
     [FBButton setBackgroundColor:[UIColor colorWithRed:24/255.0 green:86/255.0 blue:255/255.0 alpha:1]];
     [FBButton setTitle:@"facebook登入" forState:normal];
@@ -63,7 +64,7 @@
     
     
     //第一個textfield : userName
-    userNameText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+    userNameText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     userNameText.center = CGPointMake(self.view.frame.size.width/2,300 );
     [userNameText setBorderStyle:UITextBorderStyleRoundedRect];
     userNameText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
@@ -74,7 +75,7 @@
     
     
     //第二個textFiled : 密碼
-    passwordText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+    passwordText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     passwordText.center = CGPointMake(self.view.frame.size.width/2, 340);
     [passwordText setBorderStyle:UITextBorderStyleRoundedRect];
     passwordText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
@@ -114,11 +115,11 @@
 {
     
    [UIView animateWithDuration:0.3 animations:^{
-       FBButton.center = CGPointMake(self.view.frame.size.width/2, 100);
+       FBButton.center = CGPointMake(self.view.frame.size.width/2, 150);
        FBButton.backgroundColor = [UIColor clearColor];
        [FBButton setTitleColor:[UIColor clearColor] forState:normal];
        
-       orLabel.center = CGPointMake(self.view.frame.size.width/2, 100);
+       orLabel.center = CGPointMake(self.view.frame.size.width/2, 200);
        orLabel.textColor = [UIColor clearColor];
    
        userNameText.center = CGPointMake(self.view.frame.size.width/2,200 );
@@ -146,6 +147,13 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         
+        FBButton.center = CGPointMake(self.view.frame.size.width/2, 200);
+        [FBButton setBackgroundColor:[UIColor colorWithRed:24/255.0 green:86/255.0 blue:255/255.0 alpha:1]];
+        [FBButton setTitleColor:[UIColor whiteColor] forState:normal];
+
+        orLabel.center = CGPointMake(self.view.frame.size.width/2, 250);
+        orLabel.textColor = [UIColor whiteColor];
+
         userNameText.center = CGPointMake(self.view.frame.size.width/2,300 );
         passwordText.center = CGPointMake(self.view.frame.size.width/2, 340);
 
@@ -164,10 +172,9 @@
 
 
 
-
+//要跳出來的controller 的 nav 是在這裡生成的
 -(void)ggg:(UIButton*)FBButton
 {
-    NSLog(@"ggggg");
 
     HomeTVC *controller = [[HomeTVC alloc] init];
     
