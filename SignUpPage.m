@@ -18,6 +18,7 @@
     UITextField *passwordText;
     UITextField *emailText;
     UIButton *signUpButton;
+    UILabel *orEmailLabel;
 }
 
 @end
@@ -51,17 +52,29 @@
     [self.view addSubview:effectView];
     
     //臉書按鈕
-    FBButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
-    FBButton.center = CGPointMake(self.view.frame.size.width/2, 200);
+    FBButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 250, 40)];
+    FBButton.center = CGPointMake(self.view.frame.size.width/2, 100);
     [FBButton setTitle:@"以Facebook帳戶註冊" forState:normal];
     [FBButton setBackgroundColor:[UIColor colorWithRed:  24/255.0 green:86/255.0 blue:255/255.0 alpha:1]];
     [FBButton setTitleColor:[UIColor whiteColor] forState:normal];
     FBButton.layer.cornerRadius = 5;
-   // [self.view addSubview:FBButton];
+    [self.view addSubview:FBButton];
+    
+    
+    //orEmailLabel
+    orEmailLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+    orEmailLabel.textColor = [UIColor whiteColor];
+    orEmailLabel.text = @"或使用電子郵件";
+    [orEmailLabel sizeToFit];
+    orEmailLabel.font = [UIFont boldSystemFontOfSize:16];
+    orEmailLabel.center = CGPointMake(self.view.frame.size.width/2, 150);
+    [self.view addSubview:orEmailLabel];
+    
+    
     
     //使用者名稱textfield
     userNameText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
-    userNameText.center = CGPointMake(self.view.frame.size.width/2,100 );
+    userNameText.center = CGPointMake(self.view.frame.size.width/2,200 );
     [userNameText setBorderStyle:UITextBorderStyleNone];
     userNameText.backgroundColor = [UIColor clearColor];
     userNameText.placeholder = @"使用者名稱";
@@ -70,7 +83,7 @@
     [self.view addSubview:userNameText];
     
     UIView *underLineView01 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
-    underLineView01.center = CGPointMake(self.view.frame.size.width/2, 115);
+    underLineView01.center = CGPointMake(self.view.frame.size.width/2, 215);
     underLineView01.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
     [self.view addSubview:underLineView01];
     
@@ -78,7 +91,7 @@
     
     //密碼textField
     passwordText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
-    passwordText.center = CGPointMake(self.view.frame.size.width/2, 140);
+    passwordText.center = CGPointMake(self.view.frame.size.width/2, 240);
     [passwordText setBorderStyle:UITextBorderStyleNone];
     passwordText.backgroundColor = [UIColor clearColor];
     passwordText.layer.cornerRadius = 5;
@@ -87,13 +100,17 @@
     [self.view addSubview:passwordText];
     
     UIView *underLineView02 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
-    underLineView02.center = CGPointMake(self.view.frame.size.width/2, 155);
+    underLineView02.center = CGPointMake(self.view.frame.size.width/2, 255);
     underLineView02.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
     [self.view addSubview:underLineView02];
     
+    
+    //或使用電子郵件Label
+    
+    
     //email textField
     emailText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
-    emailText.center = CGPointMake(self.view.frame.size.width/2, 180);
+    emailText.center = CGPointMake(self.view.frame.size.width/2, 280);
     [emailText setBorderStyle:UITextBorderStyleNone];
     emailText.backgroundColor = [UIColor clearColor];
     emailText.layer.cornerRadius = 5;
@@ -102,7 +119,7 @@
     [self.view addSubview:emailText];
     
     UIView *underLineView03 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
-    underLineView03.center = CGPointMake(self.view.frame.size.width/2, 195);
+    underLineView03.center = CGPointMake(self.view.frame.size.width/2, 295);
     underLineView03.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
     [self.view addSubview:underLineView03];
 
@@ -122,12 +139,14 @@
     
     //註冊按鈕
     signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0,250, 40)];
-    signUpButton.center = CGPointMake(self.view.frame.size.width/2, 280);
+    signUpButton.center = CGPointMake(self.view.frame.size.width/2, 340);
     signUpButton.backgroundColor = [UIColor redColor];
     [signUpButton setTitle:@"註冊" forState:normal];
     signUpButton.layer.cornerRadius = 5;
     [signUpButton addTarget:self action:@selector(userRegister:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signUpButton];
+    
+    
     
     
     
@@ -188,7 +207,7 @@
         
         }
     }];
-        
+    
 }
 
 
