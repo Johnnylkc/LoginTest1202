@@ -36,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self allUi];
     
@@ -141,7 +140,7 @@
    
    }];
     
-    NSLog(@"qqq");
+    NSLog(@"可以輸入使用者名稱了");
     
 }
 
@@ -151,7 +150,7 @@
 -(void)justTap:(UISwipeGestureRecognizer *)tapGest
 {
     
-    NSLog(@"ddd");
+    NSLog(@"可以輸入密碼了");
     
     [self.view endEditing:YES];
     
@@ -174,6 +173,8 @@
 }
 
 
+#pragma mark - 登入
+////登入功能
 -(void)justLogin:(UIButton*)loginButton
 {
     [PFUser logInWithUsernameInBackground:userNameText.text password:passwordText.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {

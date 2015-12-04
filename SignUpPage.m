@@ -47,7 +47,7 @@
     
     //特效view
     UIView *effectView = [[UIView alloc]initWithFrame:self.view.frame];
-    effectView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
+    effectView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.7];
     [self.view addSubview:effectView];
     
     //臉書按鈕
@@ -62,48 +62,78 @@
     //使用者名稱textfield
     userNameText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     userNameText.center = CGPointMake(self.view.frame.size.width/2,100 );
-    [userNameText setBorderStyle:UITextBorderStyleRoundedRect];
-    userNameText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
+    [userNameText setBorderStyle:UITextBorderStyleNone];
+    userNameText.backgroundColor = [UIColor clearColor];
     userNameText.placeholder = @"使用者名稱";
     userNameText.delegate = self;
     userNameText.textColor = [UIColor whiteColor];
     [self.view addSubview:userNameText];
     
+    UIView *underLineView01 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
+    underLineView01.center = CGPointMake(self.view.frame.size.width/2, 115);
+    underLineView01.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
+    [self.view addSubview:underLineView01];
+    
+    
     
     //密碼textField
     passwordText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     passwordText.center = CGPointMake(self.view.frame.size.width/2, 140);
-    [passwordText setBorderStyle:UITextBorderStyleRoundedRect];
-    passwordText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
+    [passwordText setBorderStyle:UITextBorderStyleNone];
+    passwordText.backgroundColor = [UIColor clearColor];
     passwordText.layer.cornerRadius = 5;
     passwordText.delegate = self;
     passwordText.textColor = [UIColor whiteColor];
     [self.view addSubview:passwordText];
     
+    UIView *underLineView02 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
+    underLineView02.center = CGPointMake(self.view.frame.size.width/2, 155);
+    underLineView02.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
+    [self.view addSubview:underLineView02];
+    
     //email textField
     emailText = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     emailText.center = CGPointMake(self.view.frame.size.width/2, 180);
-    [emailText setBorderStyle:UITextBorderStyleRoundedRect];
-    emailText.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5];
+    [emailText setBorderStyle:UITextBorderStyleNone];
+    emailText.backgroundColor = [UIColor clearColor];
     emailText.layer.cornerRadius = 5;
     emailText.delegate = self;
     emailText.textColor = [UIColor whiteColor];
     [self.view addSubview:emailText];
+    
+    UIView *underLineView03 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 1)];
+    underLineView03.center = CGPointMake(self.view.frame.size.width/2, 195);
+    underLineView03.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.4];
+    [self.view addSubview:underLineView03];
 
+
+    /////textField placeHolder的顏色改變
+    UIColor *colorOfPlaceHolder = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.3];
+    
+    userNameText.attributedPlaceholder =
+    [[NSAttributedString alloc] initWithString:@"使用者名稱" attributes:@{NSForegroundColorAttributeName: colorOfPlaceHolder}];
+    
+    passwordText.attributedPlaceholder =
+    [[NSAttributedString alloc] initWithString:@"密碼" attributes:@{NSForegroundColorAttributeName:  colorOfPlaceHolder}];
+
+    emailText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"電子郵件" attributes:@{NSForegroundColorAttributeName :colorOfPlaceHolder}];
+    
+    
     
     //註冊按鈕
-    signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
+    signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0,250, 40)];
     signUpButton.center = CGPointMake(self.view.frame.size.width/2, 280);
     signUpButton.backgroundColor = [UIColor redColor];
     [signUpButton setTitle:@"註冊" forState:normal];
+    signUpButton.layer.cornerRadius = 5;
     [signUpButton addTarget:self action:@selector(userRegister:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signUpButton];
     
     
     
     //加個tap 收鍵盤用
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(justYap:)];
-//    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(justTap:)];
+    [self.view addGestureRecognizer:tap];
 
     
     
@@ -116,9 +146,27 @@
     
     
     
+    
 }
 
 
+-(void)justTap:(UITapGestureRecognizer*)tap
+{
+    
+    [self.view endEditing:YES];
+    
+    
+}
+
+
+
+
+
+
+
+
+
+#pragma mark - 註冊
 -(void)userRegister:(UIButton*)signUpButton
 {
     PFUser *user = [PFUser user];
@@ -129,8 +177,7 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         
         if (!error) {
-            //The registration was successful, go to the wall
-            //[self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+            
             
             NSLog(@"註冊成功");
             
@@ -141,9 +188,7 @@
         
         }
     }];
-    
-    
-    
+        
 }
 
 

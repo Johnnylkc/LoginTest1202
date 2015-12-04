@@ -35,6 +35,10 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
+    //讓nav“指示”都變色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 
     //下一頁的返回 不要有字 只要有箭頭
     self.navigationItem.backBarButtonItem =
