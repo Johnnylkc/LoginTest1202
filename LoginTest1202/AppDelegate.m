@@ -27,11 +27,16 @@
 {
     
     
-    LandingPage *firstPage = [LandingPage new];
-    UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstPage];
+//    LandingPage *firstPage = [LandingPage new];
+//    UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstPage];
+    
+    
+    HomeTVC *test = [HomeTVC new];
+    UINavigationController *testNav = [[UINavigationController alloc] initWithRootViewController:test];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = firstNav;
+    self.window.rootViewController = testNav;
     [self.window makeKeyAndVisible];
     
     

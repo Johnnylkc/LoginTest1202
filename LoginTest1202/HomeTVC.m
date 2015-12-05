@@ -29,7 +29,6 @@
     
     [self parseDownload];
     
-    [self parse02];
     
     self.tableView.rowHeight = 100;
     
@@ -61,6 +60,10 @@
                     getDataDic = [@{@"order":order , @"name":name , @"age":age , @"image":image}mutableCopy];
                     
                     [locoDataArray addObject:getDataDic];
+                
+                    NSSortDescriptor *mySorter = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+                    [locoDataArray sortUsingDescriptors:[NSArray arrayWithObject:mySorter]];
+
                     
                    // NSLog(@"%@" , locoDataArray);
                 }
@@ -78,22 +81,6 @@
 
 
 
--(void)parse02
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"player"];
-    [query whereKey:@"Name" equalTo:@"Johnny"];
-    [query whereKey:@"Score" greaterThan:[NSNumber numberWithInt:1400]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-       
-        if (!error) {
-            NSLog(@"%@" , objects);
-        }else{
-            NSLog(@"shit");
-        }
-    }];
-    
-
-}
 
 
 
